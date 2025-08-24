@@ -1,39 +1,114 @@
-<!DOCTYPE html>
-<html lang="bg">
+<!DOCTYPE html><html lang="bg">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Best Promo 2025</title>
+  <title>Спечели безплатни завъртания</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff6600, #ffcc00);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: white;
       text-align: center;
-    }
-    .container {
-      background: rgba(0,0,0,0.6);
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0px 5px 20px rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: #fff;
     }
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2em;
-    }
-    .btn {
-      display: inline-block;
       margin-top: 20px;
+    }
+    #wheel {
+      margin: 30px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 10px solid #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .segment {
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0% 0%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    #spinBtn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      color: #ff7e5f;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    #claimBtn {
+      display: none;
+      margin-top: 15px;
       padding: 12px 25px;
-      background: #00ccff;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: #28a745;
       color: #fff;
-      font-size: 1.2em;
-      font-weight:
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Спечели безплатни завъртания 🎉</h1>
+  <div id="wheel">
+    <div class="segment" style="transform: rotate(0deg) skewY(-30deg); background:#ff4757;">50</div>
+    <div class="segment" style="transform: rotate(120deg) skewY(-30deg); background:#1e90ff;">100</div>
+    <div class="segment" style="transform: rotate(240deg) skewY(-30deg); background:#2ed573;">200</div>
+  </div><button id="spinBtn">Завърти</button>
+
+  <div id="result"></div>
+  <button id="claimBtn">Вземи наградата</button>  <script>
+    const wheel = document.getElementById('wheel');
+    const spinBtn = document.getElementById('spinBtn');
+    const result = document.getElementById('result');
+    const claimBtn = document.getElementById('claimBtn');
+
+    let spinning = false;
+
+    spinBtn.addEventListener('click', () => {
+      if (spinning) return;
+      spinning = true;
+      result.innerText = '';
+      claimBtn.style.display = 'none';
+
+      let randDeg = 3600 + Math.floor(Math.random() * 360); // върти поне 10 пъти
+      wheel.style.transition = 'transform 5s ease-out';
+      wheel.style.transform = `rotate(${randDeg}deg)`;
+
+      setTimeout(() => {
+        let finalDeg = randDeg % 360;
+        let prize = '';
+
+        if (finalDeg >= 0 && finalDeg < 120) prize = '50 безплатни завъртания';
+        else if (finalDeg >= 120 && finalDeg < 240) prize = '100 безплатни завъртания';
+        else prize = '200 безплатни завъртания';
+
+        result.innerText = `🎁 Ти спечели ${prize}!`;
+        claimBtn.style.display = 'inline-block';
+        spinning = false;
+      }, 5000);
+    });
+
+    claimBtn.addEventListener('click', () => {
+      window.location.href = "https://www.profitableratecpm.com/x12nudt98j?key=5d4153ea534356235b2e168da47f4c03";
+    });
+  </script></body>
+</html>
